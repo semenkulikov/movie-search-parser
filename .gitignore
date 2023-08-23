@@ -1,0 +1,5 @@
+.env
+venv
+info.json
+__pycache__/
+.idea
