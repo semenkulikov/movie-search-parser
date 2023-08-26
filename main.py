@@ -8,7 +8,7 @@ def main():
         handler = COMMANDS[action]
         if action == 5:
             print("Всего доброго!")
-        handler()
+        handler(is_action=False) if action == 0 else handler()
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 import json
-
+from urllib.parse import urljoin
 from deco import RequestDecorator
 import requests
 from dotenv import load_dotenv, find_dotenv
@@ -59,7 +59,7 @@ class FactoryRequest:
         :return: результат выполнения запроса.
         """
         deco_obj = self.path_deco
-        deco_obj.url = self.API_URL + endpoint
+        deco_obj.url = urljoin(self.API_URL, endpoint)
         deco_obj.headers = headers
         if endpoint_params:
             params.update(**endpoint_params)

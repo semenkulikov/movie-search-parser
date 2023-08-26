@@ -22,7 +22,7 @@ def save_info(text):
         file.write(str(text))
 
 
-def get_info():
+def get_info(is_action=True):
     """ Функция для выдачи справки по доступным командам """
     text = """
 Здравствуйте! Вас приветствует парсер для Кинопоиска.
@@ -35,17 +35,18 @@ def get_info():
 5 - выход из программы\n
 """
     print(text)
-    while True:
-        try:
-            action_num = int(input("\nВыберите номер действия: "))
-            if not 0 <= action_num <= 5:
-                raise ValueError
-            break
-        except ValueError:
-            print("Ошибка! Введите число от 0 до 5.")
-        except TypeError:
-            print("Ошибка! Необходимо ввести число от 0 до 5.")
-    return action_num
+    if is_action:
+        while True:
+            try:
+                action_num = int(input("\nВыберите номер действия: "))
+                if not 0 <= action_num <= 5:
+                    raise ValueError
+                break
+            except ValueError:
+                print("Ошибка! Введите число от 0 до 5.")
+            except TypeError:
+                print("Ошибка! Необходимо ввести число от 0 до 5.")
+        return action_num
 
 
 def get_random_film():
